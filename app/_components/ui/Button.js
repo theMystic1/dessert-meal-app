@@ -30,7 +30,7 @@ function Button({ children, type, onClick, handleIncDec }) {
   if (type === "addCart") {
     return (
       <button
-        className="bg-white px-4 py-2 flex items-center justify-center gap-2 rounded-[30px] center text-black hover:text-redColor font-semibold border-2 border-rose-400 hover:border-redColor w-40"
+        className="bg-white px-2 md:px-4 py-2 flex items-center justify-center gap-2 rounded-[30px] center text-black hover:text-redColor font-semibold border-2 border-rose-400 hover:border-redColor min-w-40"
         onClick={onClick}
       >
         <span className="relative h-6 w-6 ">
