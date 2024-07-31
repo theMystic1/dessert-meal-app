@@ -1,0 +1,7 @@
+/* styles/fonts.css */
+@font-face {
+  font-family: "redHat";
+  src: url("/assets/fonts/RedHatText-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
