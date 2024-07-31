@@ -39,7 +39,7 @@ function Checkout({ setIsConfirmed }) {
 
         {cart.length > 2 ? (
           <p className="text-rose-400 text-center font-bold border-b border-b-rose-200 pb-8">
-            And {cart.slice(2).length} other(s){" "}
+            And {cart.slice(2).length} other item(s){" "}
           </p>
         ) : null}
         <div className="flex justify-between items-center py-8 px-4">
