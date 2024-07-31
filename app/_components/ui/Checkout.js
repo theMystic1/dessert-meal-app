@@ -10,6 +10,8 @@ import CheckoutItem from "./CheckoutItem";
 function Checkout({ setIsConfirmed }) {
   const { cart, clearCart } = useCart();
 
+  const itemss = cart.slice(0, 2);
+
   const totalPrice = cart
     .map((item) => item.price * item.quantity)
     .reduce((acc, curv) => acc + curv, 0);
@@ -19,7 +21,7 @@ function Checkout({ setIsConfirmed }) {
     clearCart();
   }
   return (
-    <div className=" w-full md:w-[500px] min-h-80 rounded-md bg-white p-4">
+    <div className=" w-full md:w-[500px] min-h-80 rounded-md bg-white p-4 scroll-m-1">
       <div className="my-4 relative h-10 w-10">
         <Image src={orderIcon} fill alt="order icon" />
       </div>
@@ -31,11 +33,16 @@ function Checkout({ setIsConfirmed }) {
       </p>
 
       <div className="flex flex-col bg-rose-100 w-full rounded-md p-4">
-        {cart.map((item) => (
-          <CheckoutItem key={item.name} item={item} />
-        ))}
+        {cart.length > 1
+          ? itemss.map((item) => <CheckoutItem key={item.name} item={item} />)
+          : cart.map((item) => <CheckoutItem key={item.name} item={item} />)}
 
-        <div className="flex justify-between items-center">
+        {cart.length > 2 ? (
+          <p className="text-rose-400 text-center font-bold border-b border-b-rose-200 pb-8">
+            And {cart.slice(2).length} other(s){" "}
+          </p>
+        ) : null}
+        <div className="flex justify-between items-center py-8 px-4">
           <p className="font-light"> Order Total</p>
           <h1 className="font-bold text-2xl ">${totalPrice}</h1>
         </div>
